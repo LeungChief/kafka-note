@@ -13,7 +13,6 @@
     
     几个概念:
         ISR:   kafka维护的一个副本维护队列，ISR是in-sync replicas的简写。ISR的副本保持和leader的同步，当然leader本身也在ISR中
-
         HW：high watermark，是指ISR中所有节点都已经复制完的消息的offset。也是消费者所能获取到的消息的最大offset。
         LEO：LogEndOffset，表示每个分区log的最后一条消息的offset
         fully replicated：全量同步
@@ -34,9 +33,6 @@
         product.acks，0代表：不进行消息接收是否成功的确认(默认值)；1代表：当Leader副本接收成功后，返回接收成功确认信息；-1代表：当Leader和Follower副本都接收成功后，返回接收成功确认信息；
         product.buffer.memory ， 缓冲等待被发送到服务器的记录的总字节数
         broker.message.max.bytes， kafka允许的最大的一个批次的消息大小。 如果这个数字增加，且有0.10.2版本以下的consumer，那么consumer的提取大小也必须增加，以便他们可以取得这么大的记录批次。 在最新的消息格    式版本中，记录总是被组合到一个批次以提高效率。 在以前的消息格式版本中，未                                                          压缩的记录不会分组到批次中，并且此限制仅适用于该情况下的单个记录
-        
-    
-    <br>
     
     概念:
         producter分同步发送及异步发送， consumer接口有Low-level API和High-level API
